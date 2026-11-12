@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoHabit - Minimalist Offline Habit Tracker & Streak Builder</title>
+  <meta name="description" content="Build consistent daily routines and mindful habits with GoHabit. Offline-first, private Room storage, optional Google Drive backup, and customizable widgets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #131b2e;
+      --surface-elevated: #1a243d;
+      --surface-border: #243254;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #818cf8;
+      --card-radius: 18px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --surface-elevated: #f1f5f9;
+        --surface-border: #e2e8f0;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #6366f1;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--text);
+      background: var(--surface-elevated);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 60px 24px;
+      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.12), transparent 70%);
+      border-radius: 24px;
+      border: 1px solid var(--surface-border);
+      margin-bottom: 48px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--text) 40%, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid var(--surface-border);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-elevated);
+      border-color: var(--text-muted);
+      transform: translateY(-2px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 30px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .legal-card h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
+
+    .legal-card p {
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    footer {
+      max-width: 1040px;
+      margin: 60px auto 0;
+      padding: 30px 24px 0;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.2rem; }
+      .hero-section { padding: 40px 16px; }
+      .cta-group { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">GH</span>
+        <span>GoHabit</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Overview</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-section">
+      <span class="hero-badge">Build Lifelong Consistency</span>
+      <h1>Your Habits. Your Privacy.<br>No Distractions.</h1>
+      <p class="hero-desc">
+        A minimalist, offline-first habit tracker and routine builder designed for focus, streak building, and complete personal data privacy.
+      </p>
+      <div class="cta-group">
+        <a href="https://play.google.com/store/apps/details?id=com.pavilion.gohabit" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Get on Google Play
+        </a>
+        <a href="privacy.html" class="btn-secondary">
+          Read Privacy Policy
+        </a>
+        <a href="terms.html" class="btn-secondary">
+          View Terms of Service
+        </a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>100% Offline &amp; Private</h3>
+        <p>
+          All habits, logs, streaks, and timer records remain directly on your device using Android Room storage. No required account or cloud lock-in.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>Optional Google Drive Backup</h3>
+        <p>
+          Sync securely on your terms. GoHabit only touches a hidden private app data folder (appDataFolder) in your personal Google Drive.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>GoHabit PRO Upgrades</h3>
+        <p>
+          Unlock unlimited habits, home screen widgets, detailed analytics, streak freezes, and ad-free productivity with flexible plans and lifetime access.
+        </p>
+      </div>
+    </div>
+
+    <section class="legal-card">
+      <h2>Commitment to Transparency</h2>
+      <p>
+        We believe in simple, clear policies with zero hidden conditions. Read our official policies below to understand your rights, data security, and subscription terms.
+      </p>
+      <div class="cta-group" style="margin-top: 8px;">
+        <a href="privacy.html" class="btn-secondary">Privacy Policy (7 Sections)</a>
+        <a href="terms.html" class="btn-secondary">Terms of Service (8 Sections)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">GoHabit Overview</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="app-ads.txt">app-ads.txt</a>
+    </div>
+    <p>© 2026 GoHabit. All rights reserved.</p>
+  </footer>
+</body>
+</html>

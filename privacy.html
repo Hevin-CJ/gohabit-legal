@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - GoHabit</title>
+  <meta name="description" content="GoHabit Privacy Policy: Learn how GoHabit protects your habit data with local-first storage and transparent privacy practices." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #131b2e;
+      --surface-elevated: #1a243d;
+      --surface-border: #243254;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #818cf8;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --card-radius: 16px;
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --surface-elevated: #f1f5f9;
+        --surface-border: #e2e8f0;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #6366f1;
+        --success: #059669;
+        --warning: #d97706;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--text);
+      background: var(--surface-elevated);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    .hero-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin-bottom: 16px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--surface-border);
+      padding-top: 16px;
+    }
+
+    .meta-bar span strong {
+      color: var(--text);
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .section-card:hover {
+      border-color: var(--accent);
+    }
+
+    .section-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .highlight-box {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 60px auto 0;
+      padding: 30px 24px 0;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .hero-box { padding: 24px 20px; }
+      .section-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">GH</span>
+        <span>GoHabit</span>
+      </a>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="privacy.html" class="active">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-box">
+      <span class="hero-badge">Official Legal Document</span>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">
+        Simple overview of how GoHabit keeps your habits on your phone and uses optional backup, ads, bug reports, and billing.
+      </p>
+      <div class="meta-bar">
+        <span><strong>Effective Date:</strong> November 2026</span>
+        <span>•</span>
+        <span><strong>Application:</strong> GoHabit for Android (com.pavilion.gohabit)</span>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <article class="section-card">
+      <h2>1. Your Habits Stay on Your Phone</h2>
+      <p>
+        Your habits, streaks, routines, focus timers, and profile preferences are saved directly on your device using local Android Room storage. You do not need to create an online account to use GoHabit offline.
+      </p>
+      <div class="highlight-box">
+        <strong>Privacy by Design:</strong> Your habit titles, check-in timestamps, notes, and progress metrics live entirely on your hardware and are never uploaded to any proprietary GoHabit server.
+      </div>
+    </article>
+
+    <!-- Section 2 -->
+    <article class="section-card">
+      <h2>2. Optional Google Drive Backup</h2>
+      <p>
+        If you choose to connect your Google account for Cloud Backup, GoHabit uses only a private hidden app folder (<code>appDataFolder</code>) in your Google Drive to save and restore your habit backup file. GoHabit cannot see, edit, or read your personal photos, documents, or any other Google Drive files.
+      </p>
+    </article>
+
+    <!-- Section 3 -->
+    <article class="section-card">
+      <h2>3. Ads on the Free Plan</h2>
+      <p>
+        To keep the Free plan free, GoHabit shows banner ads powered by Google Mobile Ads (AdMob). AdMob may use your device Advertising ID and general device or region signals to show and measure ads. Upgrading to GoHabit PRO turns off all ads completely.
+      </p>
+    </article>
+
+    <!-- Section 4 -->
+    <article class="section-card">
+      <h2>4. Crash & Bug Reports</h2>
+      <p>
+        GoHabit uses Firebase Crashlytics to send anonymous crash reports and basic device info (such as phone model and Android version) when an error occurs so bugs can be fixed faster. Crashlytics never includes your habit titles or personal notes.
+      </p>
+    </article>
+
+    <!-- Section 5 -->
+    <article class="section-card">
+      <h2>5. Payments & Subscriptions</h2>
+      <p>
+        All GoHabit PRO purchases and subscriptions are handled securely by Google Play Billing and verified through RevenueCat so your PRO status and Restore Purchases work reliably. GoHabit never sees or stores your credit card, UPI, or bank account details.
+      </p>
+    </article>
+
+    <!-- Section 6 -->
+    <article class="section-card">
+      <h2>6. App Security</h2>
+      <p>
+        GoHabit uses the Google Play Integrity check to confirm the app was downloaded genuinely from Google Play and to protect billing and PRO unlocks against tampering.
+      </p>
+    </article>
+
+    <!-- Section 7 -->
+    <article class="section-card">
+      <h2>7. Your Choices & Control</h2>
+      <p>
+        You can export your habits (PDF, CSV, or JSON backup), delete local data by clearing device storage, or disconnect Google Drive anytime from your Google Account permissions. Active subscriptions can be managed or cancelled anytime in Google Play Store settings.
+      </p>
+      <div class="highlight-box">
+        <strong>Direct Contact & Support:</strong> For privacy inquiries, questions, or assistance, contact us directly via email at <a href="mailto:hevin00007@gmail.com" style="color: var(--primary); text-decoration: underline;">hevin00007@gmail.com</a>.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">GoHabit Overview</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="app-ads.txt">app-ads.txt</a>
+    </div>
+    <p>© 2026 GoHabit. All rights reserved.</p>
+  </footer>
+</body>
+</html>

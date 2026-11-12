@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service - GoHabit</title>
+  <meta name="description" content="GoHabit Terms of Service: Transparent terms for app usage, GoHabit PRO subscriptions, auto-renewal, cancellations, and non-refundable billing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #131b2e;
+      --surface-elevated: #1a243d;
+      --surface-border: #243254;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #818cf8;
+      --danger: #f87171;
+      --danger-bg: rgba(239, 68, 68, 0.12);
+      --warning: #fbbf24;
+      --card-radius: 16px;
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --surface-elevated: #f1f5f9;
+        --surface-border: #e2e8f0;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #6366f1;
+        --danger: #dc2626;
+        --danger-bg: rgba(220, 38, 38, 0.08);
+        --warning: #d97706;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--text);
+      background: var(--surface-elevated);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    .hero-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin-bottom: 16px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--surface-border);
+      padding-top: 16px;
+    }
+
+    .meta-bar span strong {
+      color: var(--text);
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--card-radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .section-card:hover {
+      border-color: var(--accent);
+    }
+
+    .section-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .alert-card {
+      background: var(--surface);
+      border: 2px solid var(--danger);
+      border-radius: var(--card-radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .alert-card h2 {
+      color: var(--danger);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .alert-pill {
+      display: inline-block;
+      background: var(--danger-bg);
+      color: var(--danger);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .highlight-box.danger {
+      background: var(--danger-bg);
+      border-left-color: var(--danger);
+      color: var(--text);
+    }
+
+    footer {
+      max-width: 960px;
+      margin: 60px auto 0;
+      padding: 30px 24px 0;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .hero-box { padding: 24px 20px; }
+      .section-card, .alert-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">GH</span>
+        <span>GoHabit</span>
+      </a>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" class="active">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-box">
+      <span class="hero-badge">Terms & Agreement</span>
+      <h1>Terms of Service</h1>
+      <p class="subtitle">
+        Clear rules for using GoHabit, GoHabit PRO plans, auto-renewal, cancellations, and our non-refundable billing policy.
+      </p>
+      <div class="meta-bar">
+        <span><strong>Effective Date:</strong> November 2026</span>
+        <span>•</span>
+        <span><strong>Application:</strong> GoHabit for Android (com.pavilion.gohabit)</span>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <article class="section-card">
+      <h2>1. Welcome to GoHabit</h2>
+      <p>
+        By using GoHabit, you agree to these Terms of Service. GoHabit helps you organize personal habits, daily routines, and focus timers for self-improvement only — it does not provide medical, clinical, or professional advice.
+      </p>
+    </article>
+
+    <!-- Section 2 -->
+    <article class="section-card">
+      <h2>2. Free Tier & GoHabit PRO Plans</h2>
+      <p>
+        You can use GoHabit for free within Free tier limits with Google AdMob banner ads. Upgrading to GoHabit PRO (1 Month, 6 Months, 12 Months, or Lifetime Access) unlocks unlimited habits, home-screen widgets, full history, PDF/CSV exports, streak freezes, and removes all ads.
+      </p>
+    </article>
+
+    <!-- Section 3 -->
+    <article class="section-card">
+      <h2>3. Auto-Renewal & How to Cancel</h2>
+      <p>
+        Recurring plans (1 Month, 6 Months, and 12 Months) renew automatically through your Google Play account unless cancelled at least 24 hours before the end of the current billing period. Lifetime Access is a single one-time payment and never auto-renews. You can manage or cancel anytime in Google Play Store -&gt; Payments &amp; subscriptions -&gt; Subscriptions. Uninstalling the app does not cancel an active subscription.
+      </p>
+      <div class="highlight-box">
+        <strong>Manage Subscriptions Directly:</strong> You can manage or cancel your active GoHabit subscription anytime via the <a href="https://play.google.com/store/account/subscriptions?package=com.pavilion.gohabit" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">Google Play Subscriptions Center</a>.
+      </div>
+    </article>
+
+    <!-- Section 4 -->
+    <article class="section-card">
+      <h2>4. Free Trials & Introductory Offers</h2>
+      <p>
+        If your plan includes a free trial or discounted introductory price, your Google Play account will be charged automatically at the standard plan rate when the trial ends unless you cancel at least 24 hours before the trial expires. Trial eligibility is controlled by Google Play (typically one trial per Google Play account).
+      </p>
+    </article>
+
+    <!-- Section 5 - Non-Refundable Policy -->
+    <article class="alert-card">
+      <span class="alert-pill">Strict Non-Refundable Policy</span>
+      <h2>5. No Refunds Once Paid</h2>
+      <p>
+        All payments are final and non-refundable once charged. Once payment is completed for any plan (1 Month, 6 Months, 12 Months, or Lifetime Access), no refund will be initiated, and no partial or pro-rated refunds or credits are issued for unused time or mid-cycle cancellations, except where required by applicable law.
+      </p>
+      <div class="highlight-box danger">
+        <strong>Important Subscription Details:</strong>
+        <ul style="margin-top: 8px; margin-left: 20px; line-height: 1.7;">
+          <li>If you cancel a recurring plan, future renewals stop and your GoHabit PRO access will remain active until the end of the period you already paid for.</li>
+          <li>If a payment is reversed, disputed, or refunded by Google Play, GoHabit PRO benefits are removed immediately and your account returns to the Free tier.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Section 6 -->
+    <article class="section-card">
+      <h2>6. Restoring Purchases on New Devices</h2>
+      <p>
+        Your GoHabit PRO purchase is linked to the Google Play account used at checkout. If you reinstall GoHabit or switch to another Android device, sign in with that same Google Play account and tap Restore Purchases in Profile or on the Paywall.
+      </p>
+    </article>
+
+    <!-- Section 7 -->
+    <article class="section-card">
+      <h2>7. Your Habit Data & Backups</h2>
+      <p>
+        Your habits are stored locally on your device unless you turn on optional Google Drive appDataFolder backup. Before resetting your phone, clearing app storage, or uninstalling, save a cloud backup or local JSON/CSV export so you do not lose your data.
+      </p>
+    </article>
+
+    <!-- Section 8 -->
+    <article class="section-card">
+      <h2>8. Fair Use & Updates</h2>
+      <p>
+        Please do not modify, reverse engineer, redistribute altered builds, or interfere with Google Play Integrity or entitlement verification checks. We may update these Terms as GoHabit grows. Continued use means you accept the updated Terms.
+      </p>
+      <div class="highlight-box">
+        <strong>Questions or Concerns?</strong> Please reach out to our team at <a href="mailto:hevin00007@gmail.com" style="color: var(--primary); text-decoration: underline;">hevin00007@gmail.com</a>.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">GoHabit Overview</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="app-ads.txt">app-ads.txt</a>
+    </div>
+    <p>© 2026 GoHabit. All rights reserved.</p>
+  </footer>
+</body>
+</html>
